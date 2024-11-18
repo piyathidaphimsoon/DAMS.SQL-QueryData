@@ -42,11 +42,32 @@ namespace DAMS.SQL_QueryData
 
 
             connect();
-            string sql = "select *from Products";
+            ShowData("select EmployeeID, Title + FirstName + ' ' + LastName EmpName, Position from Employees");
+
+        }
+        private void ShowData(string sql)
+
+        {
+            // string sql = "select *from Products";
             da = new SqlDataAdapter(sql, conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ShowData("select EmployeeID,Title+FirstName+' '+LastName EmpName, Position from Employees");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowData("select * from Categories");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ShowData("select *from Products");
         }
     }
 }
